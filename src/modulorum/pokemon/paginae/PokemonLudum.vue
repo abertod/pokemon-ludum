@@ -10,8 +10,13 @@
   <section v-else class="flex flex-col justify-center items-center w-screen h-screen">
     <h1 class="m-5">¿Quién es este Pokèmon?</h1>
     <!--<h3>{{ temerePokemon.nomen }}</h3>-->
-    <PokemonImago :pokemon-id="temerePokemon.id" :revelare-pokemon="false" />
-    <PokemonOptiones />
+
+    <h3 class="capitalize my-3">{{ ludumStatus }}</h3>
+    <PokemonImago
+      :pokemon-id="temerePokemon.id"
+      :revelare-pokemon="ludumStatus !== LudumStatus.Ludit"
+    />
+    <PokemonOptiones :optioness="optiones" @electus-optio="examineResponsio" />
   </section>
 </template>
 
@@ -19,8 +24,21 @@
 import PokemonImago from '../components/PokemonImago.vue';
 import PokemonOptiones from '../components/PokemonOptiones.vue';
 import { usePokemonLudum } from '../composables/usePokemonLudum';
+import { LudumStatus } from '../interfaces';
 
-const { ludumStatus, estPortat, temerePokemon } = usePokemonLudum();
+const {
+  ludumStatus,
+  estPortat,
+  temerePokemon,
+  pokemonOptiones: optiones,
+  examineResponsio,
+} = usePokemonLudum();
+
+/*
+const cumElectusOptio = (valorem: number) => {
+  console.log({ valorem });
+};
+*/
 </script>
 
 <style scoped></style>
