@@ -1,7 +1,7 @@
 <template>
   <section>
-    <img v-if="!revelarePokemon" :src="pokemonImago" alt="" class="brightness-0 h-[200px]" />
-    <img v-else :src="pokemonImago" alt="" class="h-[200px]" />
+    <img v-if="!revelarePokemon" :src="pokemonImago" alt="" class="brightness-0 h-[400px]" />
+    <img v-else :src="pokemonImago" alt="" class="h-[400px]" />
   </section>
 </template>
 
@@ -19,7 +19,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const pokemonImago = computed(
   () =>
-    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.pokemonId}.svg`,
+    /*`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.pokemonId}.svg`,*/
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/yellow/transparent/${props.pokemonId}.png`,
 );
 </script>
 
